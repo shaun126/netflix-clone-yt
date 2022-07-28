@@ -1,30 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { BellIcon, SearchIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
+import { useScrolled } from '../customHooks/useScrolled';
 const Header = () => {
-	const [isScrolled, setIsScrolled] = useState(false);
-
-	useEffect(() => {
-		const handleScroll = () => {
-			if (window.scrollY > 0) {
-				setIsScrolled(true);
-			} else {
-				setIsScrolled(false);
-			}
-		};
-		window.addEventListener('scroll', handleScroll);
-
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-		};
-	}, []);
+	const [isScrolled] = useScrolled();
 
 	return (
-		<header className={`${isScrolled && 'bg-gray-900'}`}>
+		<header className={`${isScrolled && 'bg-red-900'}`}>
 			<div className='flex items-center space-x-2 md:space-x-10'>
 				<img className='cursor-pointer object-contain' src='https://rb.gy/ulxxee' width={100} height={100} alt='' />
 
-				<ul className='hidden space-x-4 md:flex headerLink'>
+				<ul className='hidden space-x-4 md:flex headerLink '>
 					<li>Home</li>
 					<li>TV Shows</li>
 					<li>Movies</li>

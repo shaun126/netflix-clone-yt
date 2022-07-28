@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	body {
+		@apply bg-[#141414] text-white overflow-x-hidden;
+
+		/* custom scroll bar with color */
+		@apply !scrollbar-thin !scrollbar-track-transparent !scrollbar-thumb-red-600;
+	}
+
+	header {
+		@apply flex items-center justify-between p-4 lg:px-10 lg:py-6;
+		@apply fixed z-50 top-0 w-full;
+		@apply transition-all;
+	}
+}
+
+@layer components {
+	.headerLink li {
+		@apply cursor-pointer text-sm font-light text-[#e5e5e5] transition duration-200 hover:text-[#b3b4b3];
+	}
+
+	.bannerButton button {
+		@apply flex items-center gap-x-2 rounded px-5 py-1.5 font-semibold transition hover:opacity-75 md:px-8 md:py-2.5 md:text-xl;
+	}
+}

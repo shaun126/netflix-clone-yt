@@ -6,7 +6,7 @@ interface Props {
 
   // when using firebase
 	// movie: Movie | DocumentData;
-	movie: Movie;
+	movie: Movie; // just single movie thats why no array symbol in end
 }
 
 const Thumbnail = ({ movie }: Props) => {

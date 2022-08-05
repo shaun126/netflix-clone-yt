@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Banner from '../components/Banner';
 import Header from '../components/Header';
 import Row from '../components/Row';
+import useAuth from '../customHooks/useAuth';
 import { Movie } from '../typing';
 import requests from '../utils/request';
 
@@ -28,6 +29,16 @@ const Home = ({
 	romanceMovies,
 	documentaries,
 }: Props) => {
+	const { loading } = useAuth();
+
+	if (loading) {
+		return (
+			<>
+				<p className='text-6xl text-red-400'>Loading......</p>
+			</>
+		);
+	}
+
 	return (
 		<div className='relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] '>
 			<Head>
@@ -43,7 +54,7 @@ const Home = ({
 				<section className='space-y-24'>
 					<Row title='Trending Now' movies={trendingNow} />
 
-					<Row title='Top Rated' movies={topRated} />
+					{/* <Row title='Top Rated' movies={topRated} />
 
 					<Row title='Action Thrillers' movies={actionMovies} />
 
@@ -53,7 +64,7 @@ const Home = ({
 
 					<Row title='Romance Movies' movies={romanceMovies} />
 
-					<Row title='Documentaries' movies={documentaries} />
+					<Row title='Documentaries' movies={documentaries} /> */}
 				</section>
 			</main>
 		</div>

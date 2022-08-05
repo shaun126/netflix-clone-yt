@@ -16,14 +16,13 @@ const Banner = ({ netflixOriginals }: Props) => {
 	}, [netflixOriginals]);
 
 	return (
-		<div className='flex flex-col py-20 space-y-2 md:space-y-4 lg:h-[75vh] lg:justify-end lg:pb-12 '>
+		<div className=' flex flex-col pt-20 space-y-2 md:space-y-4 lg:h-[75vh] lg:justify-end '>
 			<div className='absolute top-0 left-0 h-[95vh] -z-10 w-screen'>
 				<Image priority src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`} layout='fill' objectFit='cover' />
 			</div>
-
 			<h1 className='text-2xl font-bold md:text-4xl lg:text-7xl'>{movie?.title || movie?.name || movie?.original_name}</h1>
 
-			<p className='text-shadow-md max-w-xs text-sm md:max-w-lg md:text-lg lg:max-w-2xl lg:text-2xl'>{movie?.overview}</p>
+			<p className='text-shadow-md max-w-xs text-sm md:max-w-lg md:text-lg lg:max-w-2xl lg:text-2xl'>{movie?.overview.substring(0, 200)}.....</p>
 
 			<div className='bannerButton flex space-x-3'>
 				<button className='bg-white text-black'>

@@ -20,7 +20,6 @@ const Row = ({ title, movies }: Props) => {
 
 		if (rowRef.current) {
 			// destructuring
-			console.log(rowRef.current);
 			const { scrollLeft, clientWidth } = rowRef.current;
 
 			const scrollTo = direction === 'left' ? scrollLeft - clientWidth : scrollLeft + clientWidth;
